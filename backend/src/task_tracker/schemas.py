@@ -1,12 +1,11 @@
-from pydantic import BaseModel, constr
+from pydantic import BaseModel
 from datetime import datetime
-from typing import List, Optional, ForwardRef
+from typing import List, Optional
 
-Task = ForwardRef('Task')
 
 class EmployeeBase(BaseModel):
-    full_name: constr(min_length=1, max_length=255)
-    position: constr(min_length=1, max_length=255)
+    full_name: str
+    position: str
 
 
 class EmployeeCreate(EmployeeBase):
@@ -19,18 +18,18 @@ class EmployeeUpdate(EmployeeBase):
 
 class Employee(EmployeeBase):
     id: int
-    tasks: Optional[List[Task]] = []
+    tasks: Optional[List["Task"]] = []
 
     class Config:
         orm_mode = True
 
 
 class TaskBase(BaseModel):
-    title: constr(min_length=1, max_length=255)
+    title: str
     parent_id: Optional[int] = None
     assignee_id: Optional[int] = None
     deadline: Optional[datetime] = None
-    status: constr(min_length=1, max_length=255)
+    status: str
 
 
 class TaskCreate(TaskBase):
@@ -43,7 +42,8 @@ class TaskUpdate(TaskBase):
 
 class Task(TaskBase):
     id: int
-    assignee: Optional["Employee"] = None
+    parent_id: Optional[int] = None
+    assignee: Optional[Employee] = None
     subtasks: Optional[List["Task"]] = []
 
     class Config:
