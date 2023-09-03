@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.employees_side {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+}
+
+.hover {
+    width: 69px;
+    height: 52px;
+}
+
+.hover:hover {
+    opacity: 0.5;
+}
+
+.side-navigation-item {
+    background: #eef1f4;
+    border-radius: 0px 8px 8px 0px;
+    width: 69px;
+    height: 52px;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 414px);
+    cursor: pointer;
+}
+
+.chevron-right {
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 10px);
+    overflow: visible;
+    width: 20px;
+    height: 20px;
+    fill: none;
+}
+
+.employee-icon {
+    position: absolute;
+    left: calc(50% - 20px);
+    top: calc(50% - 10px);
+    overflow: visible;
+    width: 20px;
+    height: 20px;
+    fill: none;
+}
+
+.employees_side_open {
+    background: #1c2128;
+    border-radius: 0px 8px 8px 0px;
+    width: 234px;
+    height: 362px;
+    position: relative;
+    display: none;
+    inset: 0;
+    top: 0;
+    left: 0;
+}
+
+.employee-side-open {
+    background: #eef1f4;
+    border-radius: 0px 8px 8px 0px;
+    width: 234px;
+    height: 52px;
+    position: absolute;
+    left: calc(50% - 117px);
+    top: 0;
+}
+
+.x-close {
+    position: absolute;
+    left: 197px;
+    top: calc(50% - 12px);
+    overflow: visible;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.x-close:hover {
+    opacity: 0.5;
+}
+
+.plus-circle:hover {
+    opacity: 0.5;
+}
+
+.plus-circle {
+    color: #1c2128;
+    position: absolute;
+    left: 12px;
+    top: calc(50% - 14px);
+    overflow: visible;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.title_frame_text {
+    color: #1c2128;
+    text-align: center;
+    font: var(--body-heavy, 600 16px/22px 'Inter', sans-serif);
+    position: absolute;
+    left: calc(50% - 47px);
+    top: calc(50% - 11px);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.employees-frame {
+    border-radius: 8px;
+    position: absolute;
+    left: 9px;
+    top: 62px;
+    overflow: visible;
+    width: 216px;
+    height: 4px;
+}
+
+.employees_profile {
+    width: 216px;
+    height: 48px;
+    border-radius: 8px;
+    color: #EEF1F4;
+}
+
+
+
+
+
+
+

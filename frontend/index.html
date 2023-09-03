@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="css/employee_side.css">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="js/employee_side.js"></script>
+</head>
+<header>
+    <div class="task-tracker">
+        Task Tracker
+    </div>
+</header>
+<body>
+    <div class="employees_side">
+        <div class="side-navigation-item" onclick="openForm()">
+            <div class="hover">
+                <div class="chevron-right">
+                    <img src="static/chevron-right.png" alt=">">
+                </div>
+                <div class="employee-icon">
+                    <img src="static/employee_icon.png" alt="empoyee">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="employees_side_open" id="side_open">
+        <div class="employee-side-open">
+            <div class="x-close">
+                <img src="static/x-close.png" alt="X" onclick="closeForm()">
+            </div>
+            <div class="plus-circle">
+                <img src="static/plus-circle.png" alt="+">
+            </div>
+            <div class="title_frame_text">
+                Cотрудники
+            </div>
+        </div>
+        <div class="employees-frame">
+            <div class="employees_profile">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

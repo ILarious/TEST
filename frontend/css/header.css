@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: #1c2128;
+    height: 68px;
+    position: relative;
+}
+
+.task-tracker {
+    color: #e1e1e1;
+    text-align: center;
+    font: var(--h-2, 700 32px/36px 'Inter', sans-serif);
+    position: absolute;
+    left: calc(50% - 232px);
+    top: calc(50% - 17px);
+    width: 465px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
