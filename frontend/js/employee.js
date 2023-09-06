@@ -35,9 +35,13 @@ function createEmployee() {
         full_name: `${EmployeeName}`,
         position: `${EmployeePosition}`
     }
+
     console.log(JSON.stringify(body))
 
     sendRequest('POST', requestURL, body)
         .then(data => console.log(data))
         .catch(err => console.log(err))
+
+    document.querySelector('#employeeFullName').value = ''
+    document.querySelector('#employeePosition').value = ''
 }
