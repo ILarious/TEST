@@ -1,6 +1,7 @@
 import uvicorn
 import asyncio
 from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 
 from backend.src.task_tracker.routers.task import router as task_router
 from backend.src.task_tracker.routers.employee import router as employee_router
@@ -10,6 +11,13 @@ app: FastAPI = FastAPI(
     title="Task Tracker",
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(task_router)
 app.include_router(employee_router)

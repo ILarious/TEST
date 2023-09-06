@@ -28,7 +28,7 @@ async def read_tasks(skip: int = 0, limit: int = 10, db: AsyncSession = Depends(
     return tasks
 
 
-@router.get("/{task_id}")
+@router.get("/{task_id}/")
 async def read_task_id(task_id: int, db: AsyncSession = Depends(get_async_session)):
     task = await crud_get_task(db, task_id=task_id)
     if task is None:
@@ -36,7 +36,7 @@ async def read_task_id(task_id: int, db: AsyncSession = Depends(get_async_sessio
     return task
 
 
-@router.put("/{task_id}")
+@router.put("/{task_id}/")
 async def update_task(task_id: int, task_update: TaskUpdate, db: AsyncSession = Depends(get_async_session)):
     updated_task = await crud_update_task(db, task_id, task_update)
     if updated_task is None:
@@ -44,7 +44,7 @@ async def update_task(task_id: int, task_update: TaskUpdate, db: AsyncSession = 
     return updated_task
 
 
-@router.delete("/{task_id}")
+@router.delete("/{task_id}/")
 async def delete_task(task_id: int, db: AsyncSession = Depends(get_async_session)):
     deleted_task = await crud_delete_task(db, task_id)
     print(deleted_task)

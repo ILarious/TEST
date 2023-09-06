@@ -150,3 +150,25 @@
 .create__btn button:hover {
     opacity: 0.9;
 }
+
+.create__employee {
+    justify-content: space-between;
+    width: 380px;
+    height: 888px;
+    bottom: 0;
+}
+
+
+.create__employee h2 {
+    margin:40px 0px 10px 20px;
+}
+
+.create__employee input {
+    float: bottom;
+    width: 350px;
+    height: 60px;
+    border-radius: 15px;
+    margin:0px 15px 0px 15px;
+    font-size: 30px;
+    text-align: center;
+}
