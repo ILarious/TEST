@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Task Tracker</title>
-    <link rel="stylesheet" href="css/employee_side.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/header.css">
-    <script src="js/employee_side.js"></script>
+    <link rel="stylesheet" href="css/body.css">
 </head>
 <header>
     <div class="task-tracker">
@@ -13,36 +13,51 @@
     </div>
 </header>
 <body>
-    <div class="employees_side">
-        <div class="side-navigation-item" onclick="openForm()">
-            <div class="hover">
-                <div class="chevron-right">
-                    <img src="static/chevron-right.png" alt=">">
-                </div>
-                <div class="employee-icon">
-                    <img src="static/employee_icon.png" alt="empoyee">
-                </div>
+
+    <div class="menu">
+        <div class="side" onclick="openMenu()">
+            <div class="icon__menu">
+                <img src="static/chevron-right.png" alt=">" class="chevron__right">
+                <img src="static/x-close.png" alt="X" class="x__close">
             </div>
         </div>
-    </div>
+        <div class="menu__content">
 
-    <div class="employees_side_open" id="side_open">
-        <div class="employee-side-open">
-            <div class="x-close">
-                <img src="static/x-close.png" alt="X" onclick="closeForm()">
-            </div>
-            <div class="plus-circle">
-                <img src="static/plus-circle.png" alt="+">
-            </div>
-            <div class="title_frame_text">
-                Cотрудники
-            </div>
-        </div>
-        <div class="employees-frame">
-            <div class="employees_profile">
 
+            <div class="tab">
+                <button class="tab__links" onclick="selectTab(event, 'employeesTab')" id="default__open">
+                    <img src="static/employee_icon.png" alt="employees" class="icon__tab">
+                </button>
+                <button class="tab__links" onclick="selectTab(event, 'tasksTab')">
+                    <img src="static/tasks-icon.png" alt="tasks" class="icon__tab">
+                </button>
             </div>
+
+
+
+            <div class="tab__content" id="employeesTab">
+                <div class="employees__content">
+                    <div class="create__btn">
+                        <button onclick="createEmployee()">
+                            <h1>Создать</h1>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab__content" id="tasksTab">
+                <div class="tasks__content">
+                    <div class="create__btn">
+                        <button onclick="createEmployee()">
+                            <h1>Создать</h1>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
+<script src="js/menu.js"></script>
+<script src="js/employee.js"></script>
 </html>
