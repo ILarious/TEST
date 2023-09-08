@@ -158,12 +158,31 @@
     bottom: 0;
 }
 
-
 .create__employee h2 {
     margin:40px 0px 10px 20px;
 }
 
 .create__employee input {
+    float: bottom;
+    width: 350px;
+    height: 60px;
+    border-radius: 15px;
+    margin:0px 15px 0px 15px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.create__employee select {
+    float: bottom;
+    width: 350px;
+    height: 60px;
+    border-radius: 15px;
+    margin:0px 15px 0px 15px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.create__employee option {
     float: bottom;
     width: 350px;
     height: 60px;

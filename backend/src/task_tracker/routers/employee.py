@@ -24,7 +24,7 @@ async def create_employee(new_employee: EmployeeCreate, session: AsyncSession = 
 
 
 @router.get("/")
-async def read_employees(skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_async_session)):
+async def read_employees(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(get_async_session)):
     employees = await crud_get_employees(db, skip=skip, limit=limit)
     return employees
 

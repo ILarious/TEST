@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/tree.css">
 </head>
 <header>
     <div class="task-tracker">
         Task Tracker
     </div>
 </header>
-<body>
+<body onload="getTasks()">
 
     <div class="menu">
         <div class="side" onclick="openMenu()">
@@ -56,17 +57,38 @@
 
             <div class="tab__content" id="tasksTab">
                 <div class="tasks__content">
+
+                    <div class="create__employee">
+                        <h2>Название</h2>
+                        <input type="text" id="taskTitle" placeholder="Покормить кота">
+                        <h2>Сотрудник</h2>
+                        <select onfocus="selectEmployee()" id="taskAssignee">
+                            <option>Нужно выбрать</option>
+                        </select>
+                        <h2>Дэдлайн</h2>
+                        <input type="date" id="taskDeadline" placeholder="Вчера">
+                        <h2>Статус</h2>
+                        <input type="text" id="taskStatus" placeholder="В работе">
+                    </div>
+
                     <div class="create__btn">
-                        <button>
+                        <button onclick="createTask()">
                             <h1>Создать</h1>
                         </button>
                     </div>
+
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div id="tree-root" class="tree">
+        <!-- Здесь будет отображаться иерархическое дерево -->
+    </div>
+
 </body>
+<script src="js/task.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/employee.js"></script>
 </html>

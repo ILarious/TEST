@@ -16,14 +16,14 @@ router = APIRouter(
 )
 
 
-@router.post("/", response_model=Task)
+@router.post("/")
 async def create_task(new_task: TaskCreate, session: AsyncSession = Depends(get_async_session)):
     db_task = await crud_create_task(new_task=new_task, db=session)
     return db_task
 
 
 @router.get("/")
-async def read_tasks(skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_async_session)):
+async def read_tasks(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(get_async_session)):
     tasks = await crud_get_tasks(db, skip=skip, limit=limit)
     return tasks
 

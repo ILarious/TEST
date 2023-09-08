@@ -1,6 +1,9 @@
+from datetime import date
+
 from pydantic import BaseModel
-from datetime import datetime
 from typing import List, Optional
+
+
 
 
 class EmployeeBase(BaseModel):
@@ -28,7 +31,7 @@ class TaskBase(BaseModel):
     title: str
     parent_id: Optional[int] = None
     assignee_id: Optional[int] = None
-    deadline: Optional[datetime] = None
+    deadline: Optional[date] = None
     status: str
 
 

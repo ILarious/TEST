@@ -1,7 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, MetaData
+from sqlalchemy import Integer, String, ForeignKey, Date, MetaData
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from typing import List, Optional
-from datetime import datetime
 
 from backend.src.database import Base
 
@@ -25,7 +24,7 @@ class Task(Base):
     title: Mapped[str] = mapped_column(String, index=True)
     parent_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey('tasks.id'))
     assignee_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey('employees.id'))
-    deadline: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    deadline: Mapped[Optional[Date]] = mapped_column(Date)
     status: Mapped[str] = mapped_column(String)
 
     assignee: Mapped[Optional["Employee"]] = relationship("Employee", back_populates="tasks")
