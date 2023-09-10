@@ -39,9 +39,9 @@ function createTask() {
 
 
 function buildTree(data) {
-    const treeRoot = document.getElementById('tree-root'); // Это корневой элемент дерева в вашем HTML
+    const treeRoot = document.getElementById('tree-root');
 
-    // Рекурсивная функция для построения уровней дерева
+
     function buildLevel(parentId, parentElement) {
         const childTasks = data.filter(task => task.parent_id === parentId);
 
@@ -56,12 +56,23 @@ function buildTree(data) {
             const li = document.createElement('li');
             const div = document.createElement('div');
             const h3 = document.createElement('h3');
+            const line = document.createElement('div');
+            const date = new Date(task.deadline);
+            const assignee = sendRequest('GET', `${EmployeeRequestURL + task.assignee_id}`)
+                .then(response => console.log(response))
+                .catch(err => console.log(err));
+
+            console.log(assignee.full_name)
 
             div.classList.add('task__content');
+            line.classList.add('line');
 
-            h3.textContent = task.title;
+            h3.textContent =
+                `Задача: ${task.title} 
+Сотрудник: ${assignee}
+Дедлайн: ${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`
             ul.appendChild(li);
-            li.appendChild(div)
+            li.appendChild(div);
             div.appendChild(h3);
 
             // Рекурсивно вызываем функцию для построения подзадач
