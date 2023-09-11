@@ -51,32 +51,30 @@ function selectEmployee() {
 
             let options = data.map(item => `${item.full_name} (id:${item.id})`)
             let id = data.map(item => item.id)
-            let select = document.getElementById('taskAssignee');
 
-            while (select.options.length > 0) {
-                select.options.remove(0);
+
+            function populateSelectWithOptions(selectElement, options, ids) {
+                while (selectElement.options.length > 0) {
+                    selectElement.options.remove(0);
+                }
+
+                for (let i = 0; i < options.length; i++) {
+                    let option = document.createElement('option');
+                    option.value = ids[i];
+                    option.text = options[i];
+                    selectElement.options.add(option);
+                }
             }
 
-            for (let i = 0; i < options.length; i++) {
-                let option = document.createElement('option');
-                option.value = id[i];
-                option.text = options[i];
-                select.options.add(option);
-            }
+            // Применяем функцию для select0
+            let select0 = document.getElementsByClassName('taskAssignee')[0];
+            populateSelectWithOptions(select0, options, id);
+
+            // Применяем функцию для select1
+            let select1 = document.getElementsByClassName('taskAssignee')[1];
+            populateSelectWithOptions(select1, options, id);
 
 
         })
         .catch(err => console.log(err))
-}
-
-
-
-
-async function fetchAssigneeId(id, assignee) {
-    return sendRequest('GET', `${EmployeeRequestURL + id}`).then(
-        data => {
-            assignee = data
-            return assignee
-        }
-    )
 }

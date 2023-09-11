@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/body.css">
     <link rel="stylesheet" href="css/tree.css">
+    <link rel="stylesheet" href="css/edit.css">
 </head>
 <header>
     <div class="task-tracker">
@@ -62,7 +63,7 @@
                         <h2>Название</h2>
                         <input type="text" id="taskTitle" placeholder="Покормить кота">
                         <h2>Сотрудник</h2>
-                        <select onfocus="selectEmployee()" id="taskAssignee">
+                        <select onfocus="selectEmployee()" class="taskAssignee" id="taskAssignee">
                             <option>Нужно выбрать</option>
                         </select>
                         <h2>Дэдлайн</h2>
@@ -87,12 +88,39 @@
         <!-- Здесь будет отображаться иерархическое дерево -->
     </div>
 
-    <div class="edit_task">
-        <h2>Название</h2>
+    <div class="modal__edit">
+        <div class="overlay__edit" onclick="CloseEditTask()"></div>
+        <div class="edit__task__window">
+            <h3 >Редактирование</h3>
+            <img src="static/x-close.png" alt="X" class="x__close__edit" onclick="CloseEditTask()">
+            <h2>Название</h2>
+            <input type="text" id="taskTitleEdit">
+            <h2>Сотрудник</h2>
+            <select onfocus="selectEmployee()" class="taskAssignee">
+                <option></option>
+            </select>
+            <h2>Дэдлайн</h2>
+            <input type="date" id="taskDeadlineEdit">
+            <h2>Статус</h2>
+            <input type="text" id="taskStatusEdit">
+            <div class="edit__btn">
+                <button onclick="">
+                    <h1>Изменить</h1>
+                </button>
+            </div>
+            <div class="edit__btn">
+                <button onclick="">
+                    <h1>Удалить</h1>
+                </button>
+            </div>
+
+        </div>
 
     </div>
+    <script src="js/task.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/employee.js"></script>
+    <script src="js/edit.js"></script>
 </body>
-<script src="js/task.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/employee.js"></script>
+
 </html>

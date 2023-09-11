@@ -1,0 +1,125 @@
+.modal__edit {
+    position:fixed;
+    display:flex;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+    z-index:100;
+    top:0;
+    left:0;
+}
+
+
+.overlay__edit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.4;
+    background-color: black;
+}
+
+.modal__edit {
+    display: none;
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+
+.edit__task__window {
+    justify-content: space-between;
+    width: 380px;
+    height: 750px;
+    bottom: 0;
+    background-color: rgb(211, 212, 212);
+    border-radius: 15px;
+    border: 3px solid black;
+    position: absolute;
+    z-index: 2;
+    left: calc(50% - 190px);
+    top: calc(50% - 350px);
+    transition: 0.5s;
+}
+
+.edit__task__window h3 {
+    margin:12px 0 10px 20px;
+}
+
+.modal__edit__active {
+    display: block;
+}
+
+.edit__task__window h2 {
+    margin:40px 0px 10px 20px;
+}
+
+.edit__task__window input {
+    float: bottom;
+    width: 350px;
+    height: 60px;
+    border-radius: 15px;
+    margin:0px 15px 0px 15px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.edit__task__window select {
+    float: bottom;
+    width: 350px;
+    height: 60px;
+    border-radius: 15px;
+    margin:0px 15px 0px 15px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.edit__task__window option {
+    float: bottom;
+    width: 350px;
+    height: 60px;
+    border-radius: 15px;
+    margin:0px 15px 0px 15px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.x__close__edit {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 20px;
+    top: 20px;
+}
+
+.x__close__edit:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+.edit__btn {
+    position: relative;
+    display: inline-flex;
+    top: 30px;
+    left: 8px;
+}
+
+.edit__btn button {
+    width: 180px;
+    height: 68px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+    position: relative;
+    background-color: rgb(28, 33, 40);
+    cursor: pointer;
+    color: white;
+}
+
+
+.edit__btn button:hover {
+    cursor: pointer;
+    background-color: rgb(58, 60, 61);
+    transition: 0.3s;
+}

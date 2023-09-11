@@ -37,7 +37,6 @@ h3 {
 .task__content:hover {
     cursor: pointer;
     background-color: rgba(68, 68, 68, 0.18);
-    transform: scale(1.05);
     transition: 0.3s;
 }
 
@@ -46,10 +45,12 @@ h3 {
     height: 3px;
     background-color: #000;
     transform-origin: top;
-    /*transform: translate(-50%, -50%);*/
 }
 
 li {
     display: flex;
     align-items: center;
 }
+
+
+
