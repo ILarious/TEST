@@ -1,5 +1,3 @@
-
-
 const EmployeeRequestURL = 'http://127.0.0.1:8000/employees/'
 
 function sendRequest(method, url, body = null) {
@@ -74,10 +72,11 @@ function selectEmployee() {
 
 
 
-function EmployeeGetID (id) {
-    sendRequest('GET', `${EmployeeRequestURL+id}`)
-        .then(data => {
-            console.log(data)
-        })
-        .catch(err => console.log(err))
+async function fetchAssigneeId(id, assignee) {
+    return sendRequest('GET', `${EmployeeRequestURL + id}`).then(
+        data => {
+            assignee = data
+            return assignee
+        }
+    )
 }
