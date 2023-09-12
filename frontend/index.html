@@ -16,111 +16,144 @@
 </header>
 <body onload="getTasks()">
 
-    <div class="menu">
-        <div class="side" onclick="openMenu()">
-            <div class="icon__menu">
-                <img src="static/chevron-right.png" alt=">" class="chevron__right">
-                <img src="static/x-close.png" alt="X" class="x__close">
-            </div>
+<div class="menu">
+    <div class="side" onclick="openMenu()">
+        <div class="icon__menu">
+            <img src="static/chevron-right.png" alt=">" class="chevron__right">
+            <img src="static/x-close.png" alt="X" class="x__close">
         </div>
-        <div class="menu__content">
+    </div>
+    <div class="menu__content">
 
 
-            <div class="tab">
-                <button class="tab__links" onclick="selectTab(event, 'employeesTab')" id="default__open">
-                    <img src="static/employee_icon.png" alt="employees" class="icon__tab">
-                </button>
-                <button class="tab__links" onclick="selectTab(event, 'tasksTab')">
-                    <img src="static/tasks-icon.png" alt="tasks" class="icon__tab">
-                </button>
-            </div>
+        <div class="tab">
+            <button class="tab__links" onclick="selectTab(event, 'employeesTab')" id="default__open">
+                <img src="static/employee_icon.png" alt="employees" class="icon__tab">
+            </button>
+            <button class="tab__links" onclick="selectTab(event, 'tasksTab')">
+                <img src="static/tasks-icon.png" alt="tasks" class="icon__tab">
+            </button>
+        </div>
 
 
+        <div class="tab__content" id="employeesTab">
+            <div class="employees__content">
 
-            <div class="tab__content" id="employeesTab">
-                <div class="employees__content">
-
-                    <div class="create__employee">
-                        <h2>ФИО</h2>
-                        <input type="text" id="employeeFullName" placeholder="Иванов Иван Иванович">
-                        <h2>Должность</h2>
-                        <input type="text" id="employeePosition" placeholder="Инженер">
-                    </div>
-
-                    <div class="create__btn">
-                        <button onclick="createEmployee()">
-                            <h1>Создать</h1>
-                        </button>
-                    </div>
-
+                <div class="create__employee">
+                    <h2>ФИО</h2>
+                    <input type="text" id="employeeFullName" placeholder="Иванов Иван Иванович">
+                    <h2>Должность</h2>
+                    <input type="text" id="employeePosition" placeholder="Инженер">
                 </div>
-            </div>
 
-            <div class="tab__content" id="tasksTab">
-                <div class="tasks__content">
-
-                    <div class="create__employee">
-                        <h2>Название</h2>
-                        <input type="text" id="taskTitle" placeholder="Покормить кота">
-                        <h2>Сотрудник</h2>
-                        <select onfocus="selectEmployee()" class="taskAssignee" id="taskAssignee">
-                            <option>Нужно выбрать</option>
-                        </select>
-                        <h2>Дэдлайн</h2>
-                        <input type="date" id="taskDeadline">
-                        <h2>Статус</h2>
-                        <input type="text" id="taskStatus" placeholder="В работе">
-                    </div>
-
-                    <div class="create__btn">
-                        <button onclick="createTask()">
-                            <h1>Создать</h1>
-                        </button>
-                    </div>
-
+                <div class="btn">
+                    <button onclick="editEmployee()">
+                        <h1>Редактировать</h1>
+                    </button>
                 </div>
-            </div>
 
+                <div class="btn">
+                    <button onclick="createEmployee()">
+                        <h1>Создать</h1>
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="tab__content" id="tasksTab">
+            <div class="tasks__content">
+
+                <div class="create__employee">
+                    <h2>Название</h2>
+                    <input type="text" id="taskTitle" placeholder="Покормить кота">
+                    <h2>Сотрудник</h2>
+                    <select onfocus="selectEmployee()" class="taskAssignee" id="taskAssignee">
+                        <option>Нужно выбрать</option>
+                    </select>
+                    <h2>Дэдлайн</h2>
+                    <input type="date" id="taskDeadline">
+                    <h2>Статус</h2>
+                    <input type="text" id="taskStatus" placeholder="В работе">
+                </div>
+
+                <div class="btn">
+                    <button onclick="createTask()">
+                        <h1>Создать</h1>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="tree__root" class="tree__node">
+    <!-- Здесь будет отображаться иерархическое дерево -->
+</div>
+
+<div class="modal__edit">
+    <div class="overlay__edit" onclick="CloseEditTask()"></div>
+    <div class="edit__task__window">
+        <h3>Редактирование</h3>
+        <img src="static/x-close.png" alt="X" class="x__close__edit" onclick="CloseEditTask()">
+        <h2>Название</h2>
+        <input type="text" id="taskTitleEdit">
+        <h2>Сотрудник</h2>
+        <select class="taskAssignee" id="taskAssigneeEdit"></select>
+        <h2>Дэдлайн</h2>
+        <input type="date" id="taskDeadlineEdit">
+        <h2>Статус</h2>
+        <input type="text" id="taskStatusEdit">
+        <div class="edit__btn">
+            <button id="edit__btn">
+                <h1>Изменить</h1>
+            </button>
+        </div>
+        <div class="edit__btn">
+            <button id="delete__btn" onclick="">
+                <h1>Удалить</h1>
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal__edit__employee">
+    <div class="overlay__edit" onclick="CloseEditEmployee()"></div>
+    <div class="edit__task__window">
+        <h3>Редактирование</h3>
+        <img src="static/x-close.png" alt="X" class="x__close__edit" onclick="CloseEditEmployee()">
+        <h2>Сотрудник</h2>
+        <select class="taskAssignee" id="employeeAssigneeEdit"></select>
+        <h2>ФИО</h2>
+        <input type="text" id="employeeFullNameEdit">
+        <h2>Должность</h2>
+        <input type="text" id="employeePositionEdit">
+
+        <div class="edit__btn">
+            <button id="edit__btn__employee">
+                <h1>Изменить</h1>
+            </button>
+        </div>
+        <div class="edit__btn">
+            <button id="delete__btn__employee">
+                <h1>Удалить</h1>
+            </button>
         </div>
     </div>
 
-    <div id="tree-root" class="tree-node">
-        <!-- Здесь будет отображаться иерархическое дерево -->
-    </div>
+</div>
 
-    <div class="modal__edit">
-        <div class="overlay__edit" onclick="CloseEditTask()"></div>
-        <div class="edit__task__window">
-            <h3 >Редактирование</h3>
-            <img src="static/x-close.png" alt="X" class="x__close__edit" onclick="CloseEditTask()">
-            <h2>Название</h2>
-            <input type="text" id="taskTitleEdit">
-            <h2>Сотрудник</h2>
-            <select onfocus="selectEmployee()" class="taskAssignee">
-                <option></option>
-            </select>
-            <h2>Дэдлайн</h2>
-            <input type="date" id="taskDeadlineEdit">
-            <h2>Статус</h2>
-            <input type="text" id="taskStatusEdit">
-            <div class="edit__btn">
-                <button onclick="">
-                    <h1>Изменить</h1>
-                </button>
-            </div>
-            <div class="edit__btn">
-                <button onclick="">
-                    <h1>Удалить</h1>
-                </button>
-            </div>
 
-        </div>
-
-    </div>
-    <script src="js/task.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/employee.js"></script>
-    <script src="js/edit.js"></script>
+<script src="js/task.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/main.js"></script>
+<script src="js/employee.js"></script>
+<script src="js/edit.js"></script>
 </body>
 
 </html>

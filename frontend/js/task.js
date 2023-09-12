@@ -27,6 +27,8 @@ function createTask() {
     sendRequest('POST', taskRequestURL, body)
         .then(data => {
             console.log(data)
+            alert('Задача создана')
+            location.reload()
         })
         .catch(err => console.log(err))
 
@@ -38,7 +40,7 @@ function createTask() {
 }
 
 function buildTree(dataTasks, dataEmployee) {
-    const treeRoot = document.getElementById('tree-root');
+    const treeRoot = document.getElementById('tree__root');
 
 
     function buildLevel(parentId, parentElement) {
@@ -58,15 +60,21 @@ function buildTree(dataTasks, dataEmployee) {
             let h3 = document.createElement('h3');
             let line = document.createElement('div');
             let assignee = dataEmployee.filter(item => item.id === task.assignee_id)
+
+            if (assignee.length === 0) {
+                assignee = 'Удален'
+            } else {
+                assignee = assignee[0].full_name
+            }
             let edit = document.createElement('img');
 
             let date = new Date(task.deadline);
             let year = date.getFullYear();
             let month = (date.getMonth() + 1).toString().padStart(2, '0');
             let day = date.getDate().toString().padStart(2, '0');
-
             date = `${day}.${month}.${year}`;
 
+            let status = task.status
 
             edit.src = 'static/edit.png';
             edit.alt = 'edit';
@@ -77,8 +85,10 @@ function buildTree(dataTasks, dataEmployee) {
 
             h3.textContent =
 `Задача: ${task.title} 
-Сотрудник: ${assignee[0].full_name}
-Дедлайн: ${date}`
+Сотрудник: ${assignee}
+Дедлайн: ${date}
+Статус: ${status}`
+
 
             ul.appendChild(li);
             li.appendChild(div);
@@ -94,6 +104,3 @@ function buildTree(dataTasks, dataEmployee) {
     // Начинаем с корневого уровня (если у вас есть корневая задача)
     buildLevel(null, treeRoot);
 }
-
-
-getTasks();

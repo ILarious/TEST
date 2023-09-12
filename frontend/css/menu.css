@@ -6,7 +6,7 @@
 .menu {
     background: #444444;
     width: 380px;
-    height: 956px;
+    /*height: 956px;*/
     position: absolute;
     left: -380px;
     top: 0px;
@@ -67,7 +67,7 @@
 }
 
 .tab {
-    position: fixed;
+    position: absolute;
 }
 
 .icon__tab {
@@ -95,7 +95,7 @@
 }
 
 .tab button.active {
-    background-color: rgba(255, 255, 255, 0.82);;
+    background-color: #c0c0c0;
 }
 
 .tab__content {
@@ -110,8 +110,7 @@
     left: 0;
     top: 0;
     width: 380px;
-    height: 888px;
-    background-color: rgba(255, 255, 255, 0.82);
+    background-color: #c0c0c0;
 }
 
 
@@ -120,22 +119,20 @@
     left: 0;
     top: 0;
     width: 380px;
-    height: 888px;
-    background-color: rgba(255, 255, 255, 0.82);
+    background-color: #c0c0c0;
 }
 
-.create__btn {
-    position: absolute;
+#create__btn {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 380px;
     height: 68px;
-    bottom: 0;
 }
 
 
-.create__btn button {
+.btn button {
     width: 380px;
     height: 68px;
     border: none;
@@ -147,14 +144,14 @@
     color: white;
 }
 
-.create__btn button:hover {
+.btn button:hover {
     opacity: 0.9;
 }
 
 .create__employee {
     justify-content: space-between;
     width: 380px;
-    height: 888px;
+    height: 700px;
     bottom: 0;
 }
 
