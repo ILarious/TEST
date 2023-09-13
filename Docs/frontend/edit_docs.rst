@@ -7,9 +7,9 @@
 
 
 
-Этот документ содержит обзор и документацию к файлу edit.js_.
+Этот документ содержит обзор и документацию к файлу `edit.js`_.
 
-.. _edit.js: D:\IT\test\frontend\js\edit.js
+.. _`edit.js`: D:\IT\test\frontend\js\edit.js
 
 Функция editTask
 ----------------
