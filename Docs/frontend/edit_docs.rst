@@ -1,9 +1,13 @@
 .. highlight:: javascript
 
 ======================
-Этот документ содержит обзор и документацию к файлу `edit.js`_.
+Документация frontend/js/edit.js
 ======================
 
+
+
+
+Этот документ содержит обзор и документацию к файлу `edit.js`_.
 
 .. _`edit.js`: https://github.com/ILarious/TEST/blob/main/frontend/js/edit.js
 
