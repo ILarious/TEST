@@ -100,11 +100,11 @@ function buildTree(dataTasks, dataEmployee) {
             div.appendChild(h3);
             div.appendChild(edit);
 
-            // Рекурсивно вызываем функцию для построения подзадач
+
             buildLevel(task.id, li);
         });
     }
 
-    // Начинаем с корневого уровня (если у вас есть корневая задача)
+
     buildLevel(null, treeRoot);
 }

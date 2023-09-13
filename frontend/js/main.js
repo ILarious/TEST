@@ -1,24 +1,37 @@
+// Функция sendRequest принимает метод (GET, POST, и так далее), URL и необязательное тело запроса (по умолчанию null)
 function sendRequest(method, url, body = null) {
+    // Создаем новый Promise, который позволит асинхронно обрабатывать результаты запроса
     return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest()
+        // Создаем объект XMLHttpRequest для выполнения HTTP-запроса
+        const xhr = new XMLHttpRequest();
 
-        xhr.open(method, url)
+        // Открываем соединение с заданным методом и URL
+        xhr.open(method, url);
 
-        xhr.responseType = 'json'
-        xhr.setRequestHeader('Content-Type', 'application/json')
+        // Устанавливаем ожидаемый тип ответа на JSON
+        xhr.responseType = 'json';
 
+        // Устанавливаем заголовок Content-Type как application/json, чтобы указать тип отправляемых данных
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        // Обработчик события загрузки (получения ответа от сервера)
         xhr.onload = () => {
+            // Если статус ответа от сервера больше или равен 400 (ошибочный статус), то вызываем reject с ответом
             if (xhr.status >= 400) {
-                reject(xhr.response)
+                reject(xhr.response);
             } else {
-                resolve(xhr.response)
+                // В противном случае вызываем resolve с данными ответа
+                resolve(xhr.response);
             }
-        }
+        };
 
+        // Обработчик события ошибки
         xhr.onerror = () => {
-            reject(xhr.response)
-        }
+            // В случае ошибки также вызываем reject с ответом
+            reject(xhr.response);
+        };
 
-        xhr.send(JSON.stringify(body))
-    })
+        // Отправляем запрос на сервер с преобразованным в JSON телом запроса
+        xhr.send(JSON.stringify(body));
+    });
 }
