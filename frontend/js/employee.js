@@ -12,7 +12,10 @@ function createEmployee() {
     console.log(JSON.stringify(body))
 
     sendRequest('POST', EmployeeRequestURL, body)
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data)
+            alert(`Сотрудник ${data.full_name} (id:${data.id}) создан`)
+        })
         .catch(err => console.log(err))
 
     document.querySelector('#employeeFullName').value = ''
@@ -21,24 +24,24 @@ function createEmployee() {
 
 
 function populateSelectWithOptions(selectElement, options, id, defaultValue) {
-                while (selectElement.options.length > 0) {
-                    selectElement.options.remove(0);
-                }
+    while (selectElement.options.length > 0) {
+        selectElement.options.remove(0);
+    }
 
-                for (let i = 0; i < options.length; i++) {
-                    let option = document.createElement('option');
+    for (let i = 0; i < options.length; i++) {
+        let option = document.createElement('option');
 
-                    option.value = id[i];
-                    if (defaultValue !== null && defaultValue == id[i]) {
-                        option.selected = true;
-                    }
-                    option.text = options[i];
-                    selectElement.options.add(option);
-                }
-            }
+        option.value = id[i];
+        if (defaultValue !== null && defaultValue == id[i]) {
+            option.selected = true;
+        }
+        option.text = options[i];
+        selectElement.options.add(option);
+    }
+}
 
 
-function selectEmployee(dataTask= null) {
+function selectEmployee(dataTask = null) {
     sendRequest('GET', EmployeeRequestURL)
         .then(data => {
 

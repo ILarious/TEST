@@ -2,10 +2,12 @@
 .tree__node {
     display: flex;
     justify-content: center;
+    height: 1200px;
 }
 
 h3 {
     font: var(--h-2, 700 32px/36px 'Inter', sans-serif);
+    width: 400px;
 }
 
 .edit {
@@ -34,8 +36,14 @@ h3 {
     display: flex;
 }
 
+
+.task__content.dragging {
+    opacity: 0.5;
+}
+
+
 .task__content:hover {
-    cursor: pointer;
+    cursor: grab;
     background-color: rgba(68, 68, 68, 0.18);
     transition: 0.3s;
 }
@@ -52,5 +60,13 @@ li {
     align-items: center;
 }
 
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-
+.dragover {
+    border: 2px dashed blue;
+    background-color: lightblue;
+}

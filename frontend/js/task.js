@@ -62,7 +62,7 @@ function buildTree(dataTasks, dataEmployee) {
             let assignee = dataEmployee.filter(item => item.id === task.assignee_id)
 
             if (assignee.length === 0) {
-                assignee = 'Удален'
+                assignee = 'Не назначен'
             } else {
                 assignee = assignee[0].full_name
             }
@@ -81,10 +81,14 @@ function buildTree(dataTasks, dataEmployee) {
             edit.onclick = () => editTask(task.id);
             edit.classList.add('edit');
             div.classList.add('task__content');
+            li.id = task.id;
+            li.draggable = true;
+            li.classList.add('li__task');
             line.classList.add('line');
 
+
             h3.textContent =
-`Задача: ${task.title} 
+`Задача: ${task.title}
 Сотрудник: ${assignee}
 Дедлайн: ${date}
 Статус: ${status}`
