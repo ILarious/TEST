@@ -26,9 +26,6 @@
             position: `${EmployeePosition}`
         };
 
-        // Выводим данные в консоль в формате JSON
-        console.log(JSON.stringify(body));
-
         // Отправляем POST-запрос для создания сотрудника
         sendRequest('POST', EmployeeRequestURL, body)
             .then(data => {
