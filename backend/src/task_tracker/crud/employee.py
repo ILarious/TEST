@@ -37,7 +37,9 @@ async def crud_get_employee(db: AsyncSession, employee_id: int):
     query = (
         select(models.Employee)
         .where(models.Employee.id == employee_id)
-        .options(selectinload(models.Employee.tasks)))
+        .options(selectinload(models.Employee.tasks))
+    )
+
     response = await db.scalars(query)
     return response.first()
 
@@ -59,7 +61,11 @@ async def crud_update_employee(db: AsyncSession, employee_id: int, employee: Emp
 
 
 async def crud_delete_employee(db: AsyncSession, employee_id: int):
-    query = select(models.Employee).where(models.Employee.id == employee_id)
+    query = (
+        select(models.Employee)
+        .where(models.Employee.id == employee_id)
+        .options(selectinload(models.Employee.tasks))
+    )
     db_employee = await db.scalars(query)
     db_employee = db_employee.first()
     if db_employee:

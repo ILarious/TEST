@@ -28,4 +28,4 @@ class Task(Base):
     status: Mapped[str] = mapped_column(String)
 
     assignee: Mapped[Optional["Employee"]] = relationship("Employee", back_populates="tasks")
-    subtasks: Mapped[List["Task"]] = relationship("Task", backref="parent", remote_side=[id])
+    subtasks: Mapped[Optional[List["Task"]]] = relationship("Task", backref="parent", remote_side=[id])
