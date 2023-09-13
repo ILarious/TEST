@@ -4,8 +4,8 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 # Импорт роутеров, определенных в других файлах
-from backend.src.task_tracker.routers.task import router as task_router
-from backend.src.task_tracker.routers.employee import router as employee_router
+from backend.api.routers.task import router as task_router
+from backend.api.routers.employee import router as employee_router
 
 # Создание экземпляра FastAPI приложения
 app: FastAPI = FastAPI(

@@ -1,10 +1,10 @@
 from sqlalchemy.orm import selectinload
 
-from backend.src.task_tracker import models
+from backend.models import models
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from backend.src.task_tracker.schemas import EmployeeCreate, EmployeeUpdate
+from backend.schemes.schemas import EmployeeCreate, EmployeeUpdate
 
 
 async def crud_create_employee(new_employee: EmployeeCreate, db: AsyncSession):

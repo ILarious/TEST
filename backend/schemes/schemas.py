@@ -42,9 +42,23 @@ class TaskUpdate(TaskBase):
 # Модель задачи, включая уникальный идентификатор (id), родительскую задачу, назначенного сотрудника и список подзадач
 class Task(TaskBase):
     id: int  # Уникальный идентификатор задачи
-    parent_id: Optional[int] = None  # Идентификатор родительской задачи (опционально)
     assignee: Optional[Employee] = None  # Сотрудник, назначенный на задачу (опционально)
     subtasks: Optional[List["Task"]] = []  # Список подзадач (опционально)
 
     class Config:
         orm_mode = True  # Указывает, что эту модель можно использовать для взаимодействия с ORM (Object-Relational Mapping)
+
+
+class TaskSchema(TaskBase):
+    id: int  # Уникальный идентификатор задачи
+
+    class Config:
+        orm_mode = True  # Указывает, что эту модель можно использовать для взаимодействия с ORM (Object-Relational Mapping)
+
+
+class EmployeeSchema(EmployeeBase):
+    id: int  # Уникальный идентификатор сотрудника
+
+    class Config:
+        orm_mode = True  # Указывает, что эту модель можно использовать для взаимодействия с ORM (Object-Relational Mapping)
+
