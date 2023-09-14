@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: my_postgres
+    environment:
+      POSTGRES_DB: db_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  restore:
+    depends_on:
+      - postgres
+    image: postgres:latest
+    container_name: my_restore
+    command: bash -c "sleep 3 && pg_restore -h my_postgres -p 5432 -U postgres -d db_test /docker-entrypoint-initdb.d/db_dump.sql"
+    environment:
+      PGPASSWORD: postgres
+    volumes:
+      - ./db_dump.sql:/docker-entrypoint-initdb.d/db_dump.sql
+
