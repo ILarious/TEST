@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: my_postgres
+    environment:
+      POSTGRES_DB: db_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db_dump.sql:/docker-entrypoint-initdb.d/db_dump.sql
+
+  restore:
+    image: postgres:latest
+    container_name: my_restore
+    command: ["pg_restore", "-h", "postgres", "-p", "5432", "-U", "postgres", "-d", "db_test", "/docker-entrypoint-initdb.d/db_dump.sql"]
+    depends_on:
+      - postgres
+    environment:
+      PGPASSWORD: postgres
+    volumes:
+      - ./db_dump.sql:/docker-entrypoint-initdb.d/db_dump.sql
+
