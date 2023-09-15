@@ -1,8 +1,8 @@
 from sqlalchemy.orm import selectinload
-from backend.models import models
+from models import models
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from backend.schemes.schemas import TaskCreate, TaskUpdate
+from schemes.schemas import TaskCreate, TaskUpdate
 
 # Создание новой задачи в базе данных
 async def crud_create_task(new_task: TaskCreate, db: AsyncSession):

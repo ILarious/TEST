@@ -2,7 +2,7 @@ from sqlalchemy import Integer, String, ForeignKey, Date, MetaData
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from typing import List, Optional
 
-from backend.core.database import Base
+from core.database import Base
 
 metadata: Optional[MetaData] = Base.metadata
 

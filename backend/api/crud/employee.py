@@ -1,8 +1,8 @@
 from sqlalchemy.orm import selectinload
-from backend.models import models
+from models import models
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from backend.schemes.schemas import EmployeeCreate, EmployeeUpdate
+from schemes.schemas import EmployeeCreate, EmployeeUpdate
 
 # Создание нового сотрудника в базе данных
 async def crud_create_employee(new_employee: EmployeeCreate, db: AsyncSession):

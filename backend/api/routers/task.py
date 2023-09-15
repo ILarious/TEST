@@ -2,15 +2,15 @@ from typing import List
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from backend.core.database import get_async_session
-from backend.api.crud.task import (
+from core.database import get_async_session
+from api.crud.task import (
     crud_create_task,
     crud_get_tasks,
     crud_get_task,
     crud_update_task,
     crud_delete_task,
 )
-from backend.schemes.schemas import TaskCreate, TaskUpdate, TaskSchema
+from schemes.schemas import TaskCreate, TaskUpdate, TaskSchema
 
 # Создание маршрутера для сущности "Задача"
 router = APIRouter(

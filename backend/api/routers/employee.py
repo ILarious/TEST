@@ -2,15 +2,15 @@ from typing import List
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from backend.core.database import get_async_session
-from backend.api.crud.employee import (
+from core.database import get_async_session
+from api.crud.employee import (
     crud_create_employee,
     crud_get_employees,
     crud_get_employee,
     crud_update_employee,
     crud_delete_employee,
 )
-from backend.schemes.schemas import Employee, EmployeeUpdate, EmployeeCreate, EmployeeSchema
+from schemes.schemas import Employee, EmployeeUpdate, EmployeeCreate, EmployeeSchema
 
 # Создание маршрутера для сущности "Сотрудник"
 router = APIRouter(
